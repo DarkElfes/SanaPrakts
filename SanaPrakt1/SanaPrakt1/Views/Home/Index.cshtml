@@ -1,8 +1,35 @@
-﻿@{
+﻿@model Person
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="main-block">
+    @if (Model != null)
+    {
+        <div class="output-name">@Model.Name</div>
+    }
+
+    <!--   
+    @using (Html.BeginForm("SayName", "Home", FormMethod.Get))
+    {
+        <div class="name-block">
+            Name:
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+        <div>
+            <button type="submit">Say my name)</button>
+        </div>
+    }-->
+
+    
+    <form method="get" asp-controller="Home" asp-action="SayName">
+        <div class="name-block">
+            <label asp-for="Name"></label>
+            <input asp-for="Name"/>
+            <span asp-validation-for="Name"></span>
+        </div>
+
+        <input type="submit" value="Say my name)" />
+    </form>
 </div>

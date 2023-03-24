@@ -18,10 +18,8 @@ namespace SanaPrakt1.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        public IActionResult SayName(Person person) 
+            => View("Index", ModelState.IsValid ? person : person.Name = null);         
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
