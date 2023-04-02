@@ -4,10 +4,8 @@
 }
 
 <div class="main-block">
-    @if (Model != null)
-    {
-        <div class="output-name">@Model.Name</div>
-    }
+
+    <div class="output-name">@Model?.Name</div>
 
     <!--   
     @using (Html.BeginForm("SayName", "Home", FormMethod.Get))
